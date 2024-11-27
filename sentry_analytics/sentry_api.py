@@ -23,3 +23,31 @@ class sentry_api_builder():
 		# /api/0/issues/{issue_id}/events/
 		return f"{self.endpoint_baseurl}{self.issues}{issue_id}/{self.events}" #?&cursor=0:100:0
 
+class Sentry_Api():
+	def __init__(self, auth_token:str) -> None:
+		self.auth_token:str = auth_token
+
+	def build_header(self,custom_header):
+		header: dict = {}
+		auth_header: dict = {"Authorization": f"Bearer {self.auth_token}"}
+		header.update(auth_header)
+		if custom_header:
+			header.update(custom_header)
+
+		return header
+
+	def do_get(self, url: str, custom_header: dict = None) -> requests.Response:
+		header = self.build_header(custom_header)
+
+		response: requests.Response = requests.get(url, headers=header)
+		print(f"GET {url}")
+
+		if response.status_code != 200:
+			raise ValueError(f"GET returned {response.status_code} with error: {response.text}")
+
+		return response
+
+	def get_projects(self, org_slug) -> None:
+		url: str = sentry_api_builder.get_projects(org_slug)
+		response: requests.Response = self.do_get(url)
+		return response
