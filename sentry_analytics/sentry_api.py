@@ -31,7 +31,6 @@ class sentry_api_builder():
 	@classmethod
 	def get_issue_attachment(cls, org_slug: str, project_name: str, event_id: str, attachment_id: str) -> str:
 		#https://{org_slug}.sentry.io/api/0/projects/{org_slug}/{project_name}/events/{event_id}/attachments/{attachment_id}/?download=1
-		raise NotImplementedError("update attachment id for test")
 		return f"{sentry_api_builder.get_issue_attachments(org_slug,project_name,event_id)}{attachment_id}/?download=1"
 
 	@classmethod
@@ -54,7 +53,9 @@ class Sentry_Api():
 
 		return header
 
-	def do_get(self, url: str, custom_header: dict = None) -> requests.Response:
+	def do_get(self, 
+            url: str, 
+            custom_header: dict[str, str] = {}) -> requests.Response:
 		header = self.build_header(custom_header)
 
 		response: requests.Response = requests.get(url, headers=header)
@@ -65,7 +66,7 @@ class Sentry_Api():
 
 		return response
 
-	def get_projects(self, org_slug) -> None:
+	def get_projects(self, org_slug) -> requests.Response:
 		url: str = sentry_api_builder.get_projects(org_slug)
 		response: requests.Response = self.do_get(url)
 		return response
@@ -75,12 +76,23 @@ class Sentry_Api():
 		response: requests.Response = self.do_get(url)
 		return response
 
-	def get_issue_event_attachments(self, event_id: str):
+	def get_issue_events(self, issue_id: str) -> requests.Response:
+		url: str = sentry_api_builder.get_issue_events(issue_id)
+		response: requests.Response = self.do_get(url)
+		return response
+
+	def get_issue_event_attachments(self, event_id: str) -> requests.Response:
 		url: str = sentry_api_builder.get_issue_attachments(self.org_slug, self.project_name, event_id)
 		response: requests.Response = self.do_get(url)
 		return response
 
-	def get_issue_event_attachment(self, event_id: str, attachment_id: str):
+	def get_issue_event_attachment(self, event_id: str, attachment_id: str) -> requests.Response:
 		url: str = sentry_api_builder.get_issue_attachment(self.org_slug, self.project_name, event_id, attachment_id)
 		response: requests.Response = self.do_get(url)
 		return response
+
+	def get_issue_event(self, issue_id: str, event_id: str) -> requests.Response:
+		url: str = sentry_api_builder.get_issue_event(issue_id, event_id)
+		response: requests.Response = self.do_get(url)
+		return response
+
