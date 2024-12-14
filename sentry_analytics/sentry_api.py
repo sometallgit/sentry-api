@@ -45,7 +45,7 @@ class Sentry_Api():
 		self.org_slug: str = org_slug
 		self.project_name: str = project_name
 
-	def build_header(self, custom_header):
+	def build_header(self, custom_header: dict[str, str]):
 		header: dict[str, str] = {}
 		auth_header: dict[str, str] = {"Authorization": f"Bearer {self.auth_token}"}
 		header.update(auth_header)
