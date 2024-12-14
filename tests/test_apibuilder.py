@@ -29,8 +29,16 @@ def test_apibuilder_get_issue_event():
 	expected: str = f"https://sentry.io/api/0/issues/{issue_id}/events/{event_id}"
 	assert url == expected
 
-# def test_get_issue_attachments():
-# 	assert False
+def test_apibuilder_get_issue_attachments():
+	url: str = api_builder.get_issue_attachments(org_slug, issue_id, event_id)
+	expected: str = f"https://{org_slug}.sentry.io/api/0/projects/{org_slug}/{issue_id}/events/{event_id}/attachments/"
+	assert url == expected
+
+def test_apibuilder_get_issue_attachment():
+	# TODO: update attachment id for test
+	url: str = api_builder.get_issue_attachment(org_slug, issue_id, event_id, attachment_id)
+	expected: str = f"https://{org_slug}.sentry.io/api/0/projects/{org_slug}/{issue_id}/events/{event_id}/attachments/"
+	assert url == expected
 
 def test_apibuilder_get_issue_events():
 	url: str = api_builder.get_issue_events(issue_id)

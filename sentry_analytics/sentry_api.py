@@ -24,6 +24,17 @@ class sentry_api_builder():
 		return f"{cls.endpoint_baseurl}{cls.issues}{issue_id}/{cls.events}{event_id}"
 
 	@classmethod
+	def get_issue_attachments(cls, org_slug: str, project_name: str, event_id: str) -> str:
+		# https://{org_slug}.sentry.io/api/0/projects/{org_slug}/{project_id}/events/{event_id}/attachments/
+		return f"https://{org_slug}.sentry.io/api/0/projects/{org_slug}/{project_name}/events/{event_id}/attachments/"
+
+	@classmethod
+	def get_issue_attachment(cls, org_slug: str, project_name: str, event_id: str, attachment_id: str) -> str:
+		#https://{org_slug}.sentry.io/api/0/projects/{org_slug}/{project_name}/events/{event_id}/attachments/{attachment_id}/?download=1
+		raise NotImplementedError("update attachment id for test")
+		return f"{sentry_api_builder.get_issue_attachments(org_slug,project_name,event_id)}{attachment_id}/?download=1"
+
+	@classmethod
 	def get_issue_events(cls, issue_id: str) -> str:
 		# /api/0/issues/{issue_id}/events/
 		return f"{cls.endpoint_baseurl}{cls.issues}{issue_id}/{cls.events}" #?&cursor=0:100:0
