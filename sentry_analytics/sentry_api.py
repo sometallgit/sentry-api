@@ -75,3 +75,12 @@ class Sentry_Api():
 		response: requests.Response = self.do_get(url)
 		return response
 
+	def get_issue_event_attachments(self, event_id: str):
+		url: str = sentry_api_builder.get_issue_attachments(self.org_slug, self.project_name, event_id)
+		response: requests.Response = self.do_get(url)
+		return response
+
+	def get_issue_event_attachment(self, event_id: str, attachment_id: str):
+		url: str = sentry_api_builder.get_issue_attachment(self.org_slug, self.project_name, event_id, attachment_id)
+		response: requests.Response = self.do_get(url)
+		return response

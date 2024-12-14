@@ -35,9 +35,9 @@ def test_apibuilder_get_issue_attachments():
 	assert url == expected
 
 def test_apibuilder_get_issue_attachment():
-	# TODO: update attachment id for test
+	attachment_id: str = "attachment_id"
 	url: str = api_builder.get_issue_attachment(org_slug, issue_id, event_id, attachment_id)
-	expected: str = f"https://{org_slug}.sentry.io/api/0/projects/{org_slug}/{issue_id}/events/{event_id}/attachments/"
+	expected: str = f"https://{org_slug}.sentry.io/api/0/projects/{org_slug}/{issue_id}/events/{event_id}/attachments/{attachment_id}/?download=1"
 	assert url == expected
 
 def test_apibuilder_get_issue_events():
