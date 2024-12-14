@@ -40,8 +40,10 @@ class sentry_api_builder():
 		return f"{cls.endpoint_baseurl}{cls.issues}{issue_id}/{cls.events}" #?&cursor=0:100:0
 
 class Sentry_Api():
-	def __init__(self, auth_token:str) -> None:
-		self.auth_token:str = auth_token
+	def __init__(self, auth_token: str, org_slug: str, project_name: str) -> None:
+		self.auth_token: str = auth_token
+		self.org_slug: str = org_slug
+		self.project_name: str = project_name
 
 	def build_header(self, custom_header):
 		header: dict[str, str] = {}
