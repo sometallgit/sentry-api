@@ -1,4 +1,4 @@
-import pytest
+#type: ignore #silence pylance in tests
 import responses
 import json
 
@@ -8,13 +8,20 @@ from .mock import sentry
 
 api_builder = sentry_analytics.sentry_api.sentry_api_builder
 auth_token: str = "auth_token123"
-api = sentry_analytics.sentry_api.Sentry_Api(auth_token)
+org_slug: str = "org_slug"
+project_name: str = "project_name"
+api = sentry_analytics.sentry_api.Sentry_Api(auth_token, org_slug, project_name)
 issue_id: str = "issue_abc"
 event_id: str = "event_def"
 
 def test_apibuilder_get_projects():
 	url: str = api_builder.get_projects('test')
 	expected: str = "https://sentry.io/api/0/organizations/test/projects/"
+	assert url == expected
+
+def test_apibuilder_get_issues():
+	url: str = api_builder.get_issues(org_slug, project_name)
+	expected: str = f"https://sentry.io/api/0/projects/{org_slug}/{project_name}/issues/"
 	assert url == expected
 
 def test_apibuilder_get_issue_event():

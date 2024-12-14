@@ -12,6 +12,11 @@ class sentry_api_builder():
 	@classmethod
 	def get_projects(cls, org_slug: str) -> str:
 		return f"{cls.endpoint_baseurl}{cls.organisations}{org_slug}/{cls.projects}"
+	
+	@classmethod
+	def get_issues(cls, org_slug: str, project_name: str) -> str:
+		# https://sentry.io/api/0/projects/{org_slug}/{project_name}/issues/
+		return f"{cls.endpoint_baseurl}{cls.projects}{org_slug}/{project_name}/{cls.issues}"
 
 	@classmethod
 	def get_issue_event(cls, issue_id: str, event_id: str) -> str:
@@ -51,3 +56,9 @@ class Sentry_Api():
 		url: str = sentry_api_builder.get_projects(org_slug)
 		response: requests.Response = self.do_get(url)
 		return response
+
+	def get_issues(self) -> requests.Response:
+		url: str = sentry_api_builder.get_issues(self.org_slug, self.project_name)
+		response: requests.Response = self.do_get(url)
+		return response
+
