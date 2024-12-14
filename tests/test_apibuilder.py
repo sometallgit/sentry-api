@@ -46,8 +46,14 @@ def test_apibuilder_get_issue_events():
 	assert url == expected
 
 def test_api_build_header():
-	header: str = api.build_header(None)
+	header: dict[str, str] = api.build_header({})
 	expected = {'Authorization': f'Bearer {auth_token}'}
+	assert header == expected
+
+def test_api_build_header_with_custom():
+	header: dict[str, str] = api.build_header({"key" : "value"})
+	expected = {'Authorization': f'Bearer {auth_token}',
+                'key' : 'value'}
 	assert header == expected
 
 @responses.activate
@@ -66,7 +72,22 @@ def test_api_get_projects():
 
 	assert json.loads(sentry.sentry_mock) == response.json()
 	# assert (403, response.status_code)
-	
+
+@responses.activate
+def test_api_get_issue_events():
+	responses.add(**{
+		'method'		: responses.GET,
+		'url' 			: "https://sentry.io/api/0/issues/foo/events/",
+		'body'			: sentry.sentry_mock_get_events,
+		'status'		: 200,
+		'content_type' 	: "application/json",
+		'adding_headers': { 'X-Foo' : 'Bar' }
+	})
+
+	# response = requests.get('http://example.com/api/123')
+	response = api.get_issue_events("foo")
+
+	assert json.loads(sentry.sentry_mock_get_events) == response.json()
 
 # @responses.activate
 # def test_response():
