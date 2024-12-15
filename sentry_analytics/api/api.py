@@ -1,7 +1,14 @@
 from abc import ABC, abstractmethod
 from requests import Response
 
+from .api_config import ApiConfig
+
 class Api(ABC):
+    @abstractmethod
+    #pragma: no cover
+    def __init__(self, config: ApiConfig) -> None:
+        raise NotImplementedError('Not implemented')
+
     @abstractmethod
     #pragma: no cover
     def get_issues(cls) -> Response:

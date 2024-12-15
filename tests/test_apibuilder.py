@@ -2,15 +2,16 @@
 import responses
 import json
 
-from sentry_analytics.api import sentry_api
 # from .context import sentry_analytics
+from sentry_analytics.api import sentry_api
 from .mock import sentry 
 
 api_builder = sentry_api.sentry_api_builder
 auth_token: str = "auth_token123"
 org_slug: str = "org_slug"
 project_name: str = "project_name"
-api = sentry_api.Sentry_Api(auth_token, org_slug, project_name)
+config = sentry_api.ApiConfig(auth_token, org_slug, project_name)
+api = sentry_api.Sentry_Api(config)
 issue_id: str = "issue_abc"
 event_id: str = "event_def"
 attachment_id: str = "attachment_ghi"
