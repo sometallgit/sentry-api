@@ -1,0 +1,16 @@
+[ ] - Create classes to represent:
+    [ ] - issues
+    [ ] - events
+
+    these classes should be constructed from the web response data
+    these classes should be tested
+
+[ ] - Add caching to the retrieval of event logs
+    maintain a local cache of downloaded events and check the cache before downloading
+
+[ ] - Add progress bar to the retrieval of event logs
+
+[ ] - Verify checksum of the event logs
+    attachments supply a checksum in the response
+
+[ ] - Add filtering to the retrieval of event logs
