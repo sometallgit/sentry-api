@@ -1,5 +1,5 @@
 import requests
-import json
+from sentry_analytics import api
 
 class sentry_api_builder():
 	endpoint_baseurl: str = "https://sentry.io/api/0/"
@@ -38,7 +38,7 @@ class sentry_api_builder():
 		# /api/0/issues/{issue_id}/events/
 		return f"{cls.endpoint_baseurl}{cls.issues}{issue_id}/{cls.events}" #?&cursor=0:100:0
 
-class Sentry_Api():
+class Sentry_Api(api.Api):
 	def __init__(self, auth_token: str, org_slug: str, project_name: str) -> None:
 		self.auth_token: str = auth_token
 		self.org_slug: str = org_slug
