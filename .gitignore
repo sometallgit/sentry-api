@@ -3,3 +3,6 @@ events/
 # venv
 env/
 __pycache__/
+
+# real production config
+config/api_config.json
