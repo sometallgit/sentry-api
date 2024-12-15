@@ -9,7 +9,7 @@ def parse_events(json_file: str) -> list[str]:
 
 	return event_ids
 
-def parse_event_file(json_file: str) -> list[str]:
+def parse_events_from_file(json_file: str) -> list[str]:
 	with open(json_file) as json_data:
 		return parse_events(json_data.read())
 

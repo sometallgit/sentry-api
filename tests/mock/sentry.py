@@ -474,3 +474,331 @@ sentry_mock_get_attachments = """
     }
 ]
 """
+
+sentry_mock_get_attachment = """
+foobar
+"""
+
+
+sentry_mock_get_issue_event = """
+{
+    "id": "bc048a67fdf047e3ad8ce5901111111",
+    "groupID": "5681922222",
+    "eventID": "bc048a67fdf047e3ad8ce5901111111",
+    "projectID": "4506181611111111",
+    "size": 218276,
+    "entries": [
+        {
+            "data": {
+                "formatted": "error message title string"
+            },
+            "type": "message"
+        },
+        {
+            "data": {
+                "values": [
+                    {
+                        "type": "default",
+                        "timestamp": "2024-12-14T07:09:49.782000Z",
+                        "level": "debug",
+                        "message": "error payload",
+                        "category": "console",
+                        "data": {
+                            "arguments": [
+                                "error payload"
+                            ],
+                            "logger": "console"
+                        },
+                        "event_id": null
+                    }
+                ]
+            },
+            "type": "breadcrumbs"
+        },
+        {
+            "data": {
+                "apiTarget": null,
+                "method": null,
+                "url": "file:///C:/Program%20Files/index.html",
+                "query": [],
+                "fragment": "/editor",
+                "data": null,
+                "headers": [
+                    [
+                        "User-Agent",
+                        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36"
+                    ]
+                ],
+                "cookies": [],
+                "env": null,
+                "inferredContentType": null
+            },
+            "type": "request"
+        }
+    ],
+    "dist": null,
+    "message": "error message title string",
+    "title": "error message title string",
+    "location": null,
+    "user": {
+        "id": null,
+        "email": null,
+        "username": null,
+        "ip_address": null,
+        "name": null,
+        "geo": {
+            "country_code": "AU",
+            "city": "Sydney",
+            "region": "Australia"
+        },
+        "data": null
+    },
+    "contexts": {
+        "browser": {
+            "browser": "Chrome 96.0.4664",
+            "name": "Chrome",
+            "version": "96.0.4664",
+            "type": "browser"
+        },
+        "os": {
+            "os": "Windows >=10",
+            "name": "Windows",
+            "version": ">=10",
+            "type": "os"
+        },
+        "replay": {
+            "replay_id": "8efc3cb0d5324f7981111117c433284",
+            "type": "default"
+        },
+        "trace": {
+            "trace_id": "47c560438aaaaaaaa2e2399cd31a1c",
+            "span_id": "aae1526eae37aa42",
+            "status": "unknown",
+            "type": "trace"
+        }
+    },
+    "sdk": {
+        "name": "sentry.javascript.react",
+        "version": "7.118.0"
+    },
+    "context": {
+        "key1": true,
+        "key2": "value"
+    },
+    "packages": {},
+    "type": "default",
+    "metadata": {
+        "title": "error message title string"
+    },
+    "tags": [
+        {
+            "key": "browser",
+            "value": "Chrome 96.0.4664"
+        },
+        {
+            "key": "browser.name",
+            "value": "Chrome"
+        },
+        {
+            "key": "environment",
+            "value": "production"
+        },
+        {
+            "key": "level",
+            "value": "error"
+        },
+        {
+            "key": "os",
+            "value": "Windows >=10"
+        },
+        {
+            "key": "os.name",
+            "value": "Windows"
+        },
+        {
+            "key": "release",
+            "value": "software@version"
+        },
+        {
+            "key": "replayId",
+            "value": "8efc3cb0d5324f7981111117c433284"
+        },
+        {
+            "key": "url",
+            "value": "file:///C:/Program%20Files/index.html"
+        }
+    ],
+    "platform": "javascript",
+    "dateReceived": "2024-12-14T07:12:26.988224Z",
+    "errors": [],
+    "occurrence": null,
+    "_meta": {
+        "entries": {
+            "1": {
+                "data": {
+                    "values": {
+                        "11": {
+                            "data": {
+                                "": {
+                                    "len": 2
+                                },
+                                "arguments": {
+                                    "0": {
+                                        "": {
+                                            "rem": [
+                                                [
+                                                    "!limit",
+                                                    "s",
+                                                    2045,
+                                                    2048
+                                                ]
+                                            ],
+                                            "len": 10014,
+                                            "chunks": [
+                                                {
+                                                    "type": "text",
+                                                    "text": ""
+                                                },
+                                                {
+                                                    "type": "redaction",
+                                                    "text": "...",
+                                                    "rule_id": "!limit",
+                                                    "remark": "s"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "message": {
+                                "": {
+                                    "rem": [
+                                        [
+                                            "!limit",
+                                            "s",
+                                            8189,
+                                            8192
+                                        ]
+                                    ],
+                                    "len": 10014,
+                                    "chunks": [
+                                        {
+                                            "type": "text",
+                                            "text": ""
+                                        },
+                                        {
+                                            "type": "redaction",
+                                            "text": "...",
+                                            "rule_id": "!limit",
+                                            "remark": "s"
+                                        }
+                                    ]
+                                }
+                            }
+                        
+                        }
+                    }
+                }
+            }
+        },
+        "message": null,
+        "user": {
+            "": null,
+            "id": null,
+            "email": null,
+            "username": null,
+            "ip_address": {
+                "": {
+                    "rem": [
+                        [
+                            "@ip:replace",
+                            "s",
+                            0,
+                            4
+                        ],
+                        [
+                            "@anything:remove",
+                            "x"
+                        ]
+                    ],
+                    "len": 11
+                }
+            },
+            "name": null,
+            "geo": null,
+            "data": null
+        },
+        "contexts": null,
+        "sdk": null,
+        "context": null,
+        "packages": null,
+        "tags": {}
+    },
+    "crashFile": null,
+    "culprit": "file:///C:/Program%20Files/index.html",
+    "dateCreated": "2024-12-14T07:12:26Z",
+    "fingerprints": [
+        "33c48b931e11111111d2c8c864ae97"
+    ],
+    "groupingConfig": {
+        "enhancements": "KLUv_SAYwQAAkwKRs25ld3N0eWxlOjIwMjMtMDEtMTGQ",
+        "id": "newstyle:2023-01-11"
+    },
+    "release": {
+        "id": 33333444,
+        "version": "software@version",
+        "status": "open",
+        "shortVersion": "software@version",
+        "versionInfo": {
+            "package": "software",
+            "version": {
+                "raw": "version"
+            },
+            "description": "software@version",
+            "buildHash": null
+        },
+        "ref": null,
+        "url": null,
+        "dateReleased": null,
+        "dateCreated": "2024-07-25T03:50:14.102500Z",
+        "data": {},
+        "newGroups": 315,
+        "owner": null,
+        "commitCount": 0,
+        "lastCommit": null,
+        "deployCount": 0,
+        "lastDeploy": null,
+        "authors": [],
+        "projects": [
+            {
+                "id": 4506181611111111,
+                "slug": "software-frontend",
+                "name": "software-frontend",
+                "newGroups": 315,
+                "platform": "javascript-react",
+                "platforms": [
+                    "javascript"
+                ],
+                "hasHealthData": false
+            }
+        ],
+        "firstEvent": "2024-09-16T05:04:25Z",
+        "lastEvent": "2024-12-14T07:12:26Z",
+        "currentProjectMeta": {},
+        "userAgent": null
+    },
+    "userReport": null,
+    "sdkUpdates": [
+        {
+            "type": "updateSdk",
+            "sdkName": "sentry.javascript.react",
+            "newSdkVersion": "8.45.0",
+            "sdkUrl": "https://docs.sentry.io/platforms/javascript/guides/react/",
+            "enables": []
+        }
+    ],
+    "resolvedWith": [],
+    "nextEventID": "f344a1e39ba84afeae1111111111111",
+    "previousEventID": "c3b1a0d459fc4fd4c2222222222222"
+}
+"""
