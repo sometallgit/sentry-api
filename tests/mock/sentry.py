@@ -189,134 +189,134 @@ sentry_mock = """
 # Mocked sentry response for events on an issue
 sentry_mock_get_events = """
 [
-	{
-		"id": "aaaaaaaaaaabbbbbbbbbbbccccccc",
-		"event.type": "default",
-		"groupID": "123123123",
-		"eventID": "aaaaaaaaaaabbbbbbbbbbbccccccc",
-		"projectID": "111111111111111",
-		"message": "error message name",
-		"title": "error message name",
-		"location": null,
-		"culprit": "file:///C:/index.html",
-		"user": {
-			"id": null,
-			"email": null,
-			"username": null,
-			"ip_address": null,
-			"name": null,
-			"geo": {
-				"country_code": "IT",
-				"city": "Bergamo",
-				"region": "Italy"
-			},
-			"data": null
-		},
-		"tags": [
-			{
-				"key": "browser",
-				"value": "Chrome 96.0.4664"
-			},
-			{
-				"key": "browser.name",
-				"value": "Chrome"
-			},
-			{
-				"key": "environment",
-				"value": "production"
-			},
-			{
-				"key": "level",
-				"value": "error"
-			},
-			{
-				"key": "os",
-				"value": "Windows >=10"
-			},
-			{
-				"key": "os.name",
-				"value": "Windows"
-			},
-			{
-				"key": "release",
-				"value": "project@version"
-			},
-			{
-				"key": "url",
-				"value": "file:///C:/index.html"
-			}
-		],
-		"platform": "javascript",
-		"dateCreated": "2024-11-26T20:36:21Z",
-		"crashFile": null,
-		"metadata": {
-			"title": "error message name"
-		}
-	},
-	{
-		"id": "mmmmmmmmmmmmmccccccccccccc",
-		"event.type": "default",
-		"groupID": "123123123",
-		"eventID": "mmmmmmmmmmmmmccccccccccccc",
-		"projectID": "111111111111111",
-		"message": "error message name",
-		"title": "error message name",
-		"location": null,
-		"culprit": "file:///C:/index.html",
-		"user": {
-			"id": null,
-			"email": null,
-			"username": null,
-			"ip_address": null,
-			"name": null,
-			"geo": {
-				"country_code": "IT",
-				"city": "Bergamo",
-				"region": "Italy"
-			},
-			"data": null
-		},
-		"tags": [
-			{
-				"key": "browser",
-				"value": "Chrome 96.0.4664"
-			},
-			{
-				"key": "browser.name",
-				"value": "Chrome"
-			},
-			{
-				"key": "environment",
-				"value": "production"
-			},
-			{
-				"key": "level",
-				"value": "error"
-			},
-			{
-				"key": "os",
-				"value": "Windows >=10"
-			},
-			{
-				"key": "os.name",
-				"value": "Windows"
-			},
-			{
-				"key": "release",
-				"value": "project@version"
-			},
-			{
-				"key": "url",
-				"value": "file:///C:/index.html"
-			}
-		],
-		"platform": "javascript",
-		"dateCreated": "2024-11-26T20:08:22Z",
-		"crashFile": null,
-		"metadata": {
-			"title": "error message name"
-		}
-	}
+    {
+        "id": "aaaaaaaaaaabbbbbbbbbbbccccccc",
+        "event.type": "default",
+        "groupID": "123123123",
+        "eventID": "aaaaaaaaaaabbbbbbbbbbbccccccc",
+        "projectID": "111111111111111",
+        "message": "error message name",
+        "title": "error message name",
+        "location": null,
+        "culprit": "file:///C:/index.html",
+        "user": {
+            "id": null,
+            "email": null,
+            "username": null,
+            "ip_address": null,
+            "name": null,
+            "geo": {
+                "country_code": "IT",
+                "city": "Bergamo",
+                "region": "Italy"
+            },
+            "data": null
+        },
+        "tags": [
+            {
+                "key": "browser",
+                "value": "Chrome 96.0.4664"
+            },
+            {
+                "key": "browser.name",
+                "value": "Chrome"
+            },
+            {
+                "key": "environment",
+                "value": "production"
+            },
+            {
+                "key": "level",
+                "value": "error"
+            },
+            {
+                "key": "os",
+                "value": "Windows >=10"
+            },
+            {
+                "key": "os.name",
+                "value": "Windows"
+            },
+            {
+                "key": "release",
+                "value": "project@version"
+            },
+            {
+                "key": "url",
+                "value": "file:///C:/index.html"
+            }
+        ],
+        "platform": "javascript",
+        "dateCreated": "2024-11-26T20:36:21Z",
+        "crashFile": null,
+        "metadata": {
+            "title": "error message name"
+        }
+    },
+    {
+        "id": "mmmmmmmmmmmmmccccccccccccc",
+        "event.type": "default",
+        "groupID": "123123123",
+        "eventID": "mmmmmmmmmmmmmccccccccccccc",
+        "projectID": "111111111111111",
+        "message": "error message name",
+        "title": "error message name",
+        "location": null,
+        "culprit": "file:///C:/index.html",
+        "user": {
+            "id": null,
+            "email": null,
+            "username": null,
+            "ip_address": null,
+            "name": null,
+            "geo": {
+                "country_code": "IT",
+                "city": "Bergamo",
+                "region": "Italy"
+            },
+            "data": null
+        },
+        "tags": [
+            {
+                "key": "browser",
+                "value": "Chrome 96.0.4664"
+            },
+            {
+                "key": "browser.name",
+                "value": "Chrome"
+            },
+            {
+                "key": "environment",
+                "value": "production"
+            },
+            {
+                "key": "level",
+                "value": "error"
+            },
+            {
+                "key": "os",
+                "value": "Windows >=10"
+            },
+            {
+                "key": "os.name",
+                "value": "Windows"
+            },
+            {
+                "key": "release",
+                "value": "project@version"
+            },
+            {
+                "key": "url",
+                "value": "file:///C:/index.html"
+            }
+        ],
+        "platform": "javascript",
+        "dateCreated": "2024-11-26T20:08:22Z",
+        "crashFile": null,
+        "metadata": {
+            "title": "error message name"
+        }
+    }
 ]
 """
 
