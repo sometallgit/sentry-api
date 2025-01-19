@@ -50,8 +50,8 @@ class Sentry_Api(Api):
         header: dict[str, str] = {}
         auth_header: dict[str, str] = {"Authorization": f"Bearer {self.auth_token}"}
         header.update(auth_header)
-        if custom_header:
-            header.update(custom_header)
+        # if custom_header:
+        #     header.update(custom_header)
 
         return header
 
@@ -60,7 +60,7 @@ class Sentry_Api(Api):
             custom_header: dict[str, str] = {}) -> requests.Response:
         header = self.build_header(custom_header)
 
-        response: requests.Response = requests.get(url, headers=header)
+        response: requests.Response = requests.get(url, headers=header, params=custom_header)
         print(f"GET {url}")
 
         if response.status_code != 200:
@@ -80,8 +80,9 @@ class Sentry_Api(Api):
 
     def get_issue_events(self, issue_id: str) -> requests.Response:
         url: str = sentry_api_builder.get_issue_events(issue_id)
+        custom_header: dict = { "statsPeriod" : "30d" , "query" : "release:product@ver"}
         # page_header = {'link': '<https://sentry.io/api/0/issues/5681955228/events/?&cursor=0:0:1>; rel="previous"; results="false"; cursor="0:0:1", <https://sentry.io/api/0/issues/5681955228/events/?&cursor=0:100:0>; rel="next"; results="true"; cursor="0:100:0"'}
-        response: requests.Response = self.do_get(url)
+        response: requests.Response = self.do_get(url, custom_header)
         return response
 
     def get_issue_event_attachments(self, event_id: str) -> requests.Response:
