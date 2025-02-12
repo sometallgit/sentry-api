@@ -1,15 +1,19 @@
 import json
+from sentry_analytics.api.sentry_issue_event import SentryIssueEvent
 
 
-def parse_events(json_file: str) -> list[str]:
-    event_ids: list[str] = []
+def parse_events(json_file: str) -> list[SentryIssueEvent]:
+    event_ids: list[SentryIssueEvent] = []
     j = json.loads(json_file)
     for event in j:
-        event_ids.append(event['id'])
+        event_ids.append(SentryIssueEvent(event))
 
     return event_ids
 
-def parse_events_from_file(json_file: str) -> list[str]:
+def parse_event(json_file: str) -> SentryIssueEvent:
+    return SentryIssueEvent(json.loads(json_file))
+
+def parse_events_from_file(json_file: str) -> list[SentryIssueEvent]:
     with open(json_file) as json_data:
         return parse_events(json_data.read())
 

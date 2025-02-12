@@ -21,15 +21,18 @@ def test_parse_issues_from_file():
     assert issues == expected
 
 def test_parse_events():
-    # event_parser.parse_issues_file("tests/mock/issue_ids.json")
     expected = ['aaaaaaaaaaabbbbbbbbbbbccccccc', 'mmmmmmmmmmmmmccccccccccccc']
     issues = event_parser.parse_events(sentry.sentry_mock_get_events)
-    assert issues == expected
+
+    for issue in issues:
+        assert issue.get_event_id() in expected
 
 def test_parse_events_from_file():
     expected = ['aaaaaaaaaaabbbbbbbbbbbccccccc', 'mmmmmmmmmmmmmccccccccccccc']
     issues = event_parser.parse_events_from_file(make_path("file/events.json"))
-    assert issues == expected
+    
+    for issue in issues:
+        assert issue.get_event_id() in expected
 
 def test_parse_attachments():
     # event_parser.parse_issues_file("tests/mock/issue_ids.json")

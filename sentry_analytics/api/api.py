@@ -28,3 +28,8 @@ class Api(ABC):
     #pragma: no cover
     def get_issue_event_attachment(cls, event_id: str, attachment_id: str) -> Response:
         raise NotImplementedError('Not implemented')
+
+    @abstractmethod
+    #pragma: no cover
+    def get_issue_event(cls, issue_id: str, event_id: str) -> Response:
+        raise NotImplementedError('Not implemented')
