@@ -5,7 +5,7 @@ from api import sentry_api
 from api import api
 from api import api_config
 import event_parser
-import crash_scraper
+
 def run():
     # init config
     dir: str = os.path.dirname(__file__)
@@ -23,8 +23,6 @@ def get_project_issues(api: api.Api):
     issue_ids: dict[str,str] = event_parser.parse_issues(response.text)
 
     for issue_id in issue_ids:
-        if issue_ids[issue_id] not in whitelist:
-            continue
         get_issue_events(api, issue_id)
 
 def get_issue_events(api: api.Api, issue_id: str):
